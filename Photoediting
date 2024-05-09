@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Filters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 0 50%, #fff0 50%, #212121 calc(50% + 1px)), radial-gradient(circle at 100% 50%, var(--icon) 50%, #fff0 calc(50% + 1px));
+            background-repeat: no-repeat;
+            background-size: 52% 100%, 52% 100%;
+            background-position: 105% 0, 0 0;
+        }
+        .comparsion {
+            position: relative;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        .comparsion:before, .comparsion:after {
+            content: "ORIGINAL";
+            font-size: 0.75vmin;
+            font-weight: bold;
+            top: -2.35vmin;
+            left: 0;
+            position: absolute;
+            color: var(--icon);
+            padding: 0.3vmin 0.5vmin;
+            background: #fff;
+        }
+        .comparsion:before {
+            content: "FILTERED";
+            left: inherit;
+            right: 0;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        label {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        label span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ccc;
+            transition: background-color 0.3s ease;
+        }
+        input[type="radio"]:checked + label span {
+            background-color: #777;
+        }
+        .filtered, .original {
+            display: inline-block;
+            width: 45%;
+            height: auto;
+            max-width: 100%;
+            margin-right: 5%;
+            border-radius: 5px;
+        }
+        .filtered {
+            filter: sepia(0);
+        }
+        .original {
+            filter: sepia(1);
+        }
+        .reload {
+            display: block;
+            margin: 20px auto;
+            width: 40px;
+            height: 40px;
+            background: url("reload.png") no-repeat center center;
+            background-size: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .reload:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" name="filter" id="sepia" checked>
+    <input type="radio" name="filter" id="grayscale">
+    <input type="radio" name="filter" id="color">
+    <input type="radio" name="filter" id="saturate">
+    <input type="radio" name="filter" id="brightness">
+    <input type="radio" name="filter" id="contrast">
+    <input type="radio" name="filter" id="invert">
+    <div class="comparsion">
+        <div class="filtered"></div>
+        <div class="original"></div>
+    </div>
+    <a class="reload" target="_top" href="https://codepen.io/josetxu/pen/"><span></span></a>
+    <label for="sepia"><span></span></label>
+    <label for="grayscale"><span></span></label>
+    <label for="color"><span></span></label>
+    <label for="saturate"><span></span></label>
+    <label for="brightness"><span></span></label>
+    <label for="contrast"><span></span></label>
+    <label for="invert"><span></span></label>
+</body>
+</html>
